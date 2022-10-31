@@ -1,0 +1,53 @@
+div.quantityContainer {
+	border-radius: 2rem;
+	background: #fff;
+	color: #3b3832;
+	height: auto;
+	width: 43%;
+	gap: 3px;
+	border: 1px solid #3b3832;
+	padding: 3px 0.5rem;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+svg#minusSvg {
+	width: 17px;
+	height: 14px;
+}
+svg.addSvg {
+	width: 13px;
+	height: 13px;
+}
+
+input#quantity {
+	/* width: calc(100%/3); */
+	width: 100%;
+	text-align: center;
+	font-size: 1.1rem;
+	color: #3b3832;
+	border: 0;
+	background-color: inherit;
+}
+
+/* Chrome, Safari, Edge, Opera --- Hide Arrows From Input Number */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+/* Firefox */
+input[type="number"] {
+	-moz-appearance: textfield;
+}
+
+.btn-quantity {
+	cursor: pointer;
+	background-color: transparent;
+	border: 0;
+	/* transition: opacity .15s; */
+	/* opacity: .5; */
+	width: calc(100% / 3);
+	height: auto;
+}

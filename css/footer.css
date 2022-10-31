@@ -1,0 +1,26 @@
+footer {
+	padding: .75rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+    align-items: center;
+	word-break: keep-all;
+	line-height: 2rem;
+	font-size: .95rem;
+}
+
+.sp-nowrap {
+	display: flex;
+	flex-wrap: nowrap;
+}
+
+footer a {
+	text-decoration: underline;
+}
+
+.copyright {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}

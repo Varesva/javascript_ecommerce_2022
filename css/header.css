@@ -1,0 +1,44 @@
+header {
+   	padding: .75rem;
+    background-color: rgb(212, 186, 158, 0.5);
+    font-weight: 500;
+    font-size: 1.40rem;
+}
+
+header nav {
+    width: 100%;
+}
+
+header nav ul {
+	display: flex;
+	flex-direction: row;
+	/* justify-content: space-evenly; */
+}
+
+ul li {
+    /* margin: 0 1rem; */
+    padding: 0 1rem;
+    text-align: center;
+}
+
+header li:nth-child(even) {
+    border-left: #3b3832 1px solid;
+}
+
+div#cartCount {
+    display: inline-block;
+    color: white;
+    background-color: black;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+}
+
+div#cartCount > p {
+    font-size: small;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
