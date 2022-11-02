@@ -1,40 +1,34 @@
+"use strict";
 
-let totalCart = 0;
+let cart = {
+    key: "cartjsecommerce",
+    content : [],
+};
+let countItemsInCart = 0;
 
-if (localStorage.getItem("cart")) {
-    cart = JSON.parse(localStorage.getItem("cart"));
-
-    countingItemsInCart();
-    console.log(cart);
+let storedContent = localStorage.getItem(cart.key);
+if (storedContent) {
+    cart.content = JSON.parse(storedContent);
 };
 
-if (localStorage.getItem("totalCart")) {
-    totalCart = JSON.parse(localStorage.getItem("totalCart"));
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", showCart());
+} else {
+    showCart();
 };
 
-
-function minusOneInCart() {
-
-}
+// ----------CART.HTML---------------
 
 function showCart() {
-    let cartSession = window.sessionStorage.setItem("ecommercecart", "cart");
+    let cartContainer = document.getElementById("cartContainer");
+    let myCart = cart.content;
+    let priceTotalContainer = document.getElementById("total");
 
-    let cartContainer = document.querySelector('#cartContainer');
-    
-    let cart = [];
-
-    let jsonStr = JSON.stringify(cart);
-    cartSession.setItem("cart", jsonStr);
-
-    let priceTotalContainer = document.querySelector('div#total');
-
-    let total = cartSession.getItem("ecommercecart");
     let priceTotal = 0;
 
-    if (cartContainer != "") {
+    if (myCart) {
 
-        cart.forEach((item, i) => {
+        myCart.forEach((item, i) => {
             // get updated total price 
             priceTotal += item.price * item.quantity;
             // show price in DOM
@@ -70,41 +64,52 @@ function showCart() {
             </div>`
         });
     } else {
-        cartContainer.innerHTML +=
-            `<p>Your cart is empty 😢 !</p>`;
+        const emptyCart = document.createElement('p');
+        emptyCart.textContent = "Your cart is empty 😢 !";
+        cartContainer.appendChild(emptyCart);
     };
 
-    plusOneInCart();
-    minusOneInCart();
-}
+    // plusOneInCart();
+    // minusOneInCart();
+};
 
 
-function addToCart(i, image, name, price) {
-    console.log(' want' , i, 'named :' , name, 'priced: ', price)
-    let oneItem = document.querySelectorAll('div#itemCard')[i];
-    let input = oneItem.querySelector('input#quantity');
-    let button = oneItem.querySelector('button#addToCart');
+// function addToCart(i, image, name, price) {
+//     console.log(' want' , i, 'named :' , name, 'priced: ', price)
+//     let oneItem = document.querySelectorAll('div#itemCard')[i];
+//     let input = oneItem.querySelector('input#quantity');
+//     let button = oneItem.querySelector('button#addToCart');
 
-    button.onclick = function() {
-        cart.push(          
-            {
-                image: image,
-                name: name,
-                price: price,
-                quantity: input.value,
-            },
-        );
-        console.log(cart);
-        showCart();
+//     button.onclick = function() {
+//         cart.push(
+//             {
+//                 image: image,
+//                 name: name,
+//                 price: price,
+//                 quantity: input.value,
+//             },
+//         );
+//         console.log(cart);
+//         showCart();
+//     };
+// }
+// addToCart();
+
+
+// HEADER cart
+function updateCountCart() {
+    let cartCountContainer = document.querySelector("div#cartCount>p");
+
+    if (cart.content.length != 0) {
+        // cartCountContainer.textContent = ""; 
+        countItemsInCart = cart.content.length;
+        cartCountContainer.textContent = countItemsInCart; 
+    console.log("plein");
+    } else {
+        // countItemsInCart = 0;
+        countItemsInCart = cart.content.length;
+        cartCountContainer.textContent = countItemsInCart; 
+    console.log("rien");
     };
-}
-addToCart();
-
-function deleteOneItem() {
-
 };
-
-function clearCart() {
-    localStorage.removeItem('cart');
-    // localStorage.clear();
-};
+updateCountCart();

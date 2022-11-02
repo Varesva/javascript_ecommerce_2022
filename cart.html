@@ -12,7 +12,6 @@
     <link rel="apple-touch-icon" sizes="180x180" href="./img/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon/favicon-16x16.png">      
-    <link rel="manifest" href="./img/favicon/site.webmanifest">
     <link rel="mask-icon" href="./img/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
@@ -22,7 +21,7 @@
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/inputQuantity.css">
-    <title>Responsive e-commerce in JavaScript</title>
+    <title>Shopping cart - Responsive e-commerce in JavaScript</title>
 </head>
 <body>
     <header>
@@ -32,21 +31,21 @@
                     <a href="index.html">Home</a>
                 </li>
                  <li>
-                    <a href="cart.html">Cart&nbsp<div id="cartCount"><p>0</p></div></a>
+                    <a href="cart.html">Cart&nbsp<div id="cartCount"><p></p></div></a>
                 </li>
             </ul>
         </nav>
     </header>
     <main id="siteContainer">
         <h1>Your cart</h1>
-        <div><button onclick="clearCart()">Clear cart</button></div>
+        <div><button id="clearCart">Clear cart</button></div>
         <section>
             <div id="cartContainer"></div>
         </section>
         <section>
             <div id="totalContainer">
                 <div id="total">
-                    <span id="totalTTC">0€</span>
+                    <span id="totalTTC"></span>
                 </div>
             </div>
         </section>
@@ -71,6 +70,7 @@
     </footer>
     <!-- JS -->
     <script src="./js/script.js"></script>
+    <!-- <script src="./js/home.js"></script> -->
     <script src="./js/cart.js"></script>
 </body>
 </html>
